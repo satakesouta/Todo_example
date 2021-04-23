@@ -1,0 +1,252 @@
+body {
+	background-color: rgb(180, 255, 220);
+	/* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+}
+
+input[name="What"] {
+	width: 30vw;
+}
+
+#header {
+	font-size: 40px;
+	margin-bottom: 0vh;
+	border-radius: 11px;
+}
+
+#addTaskbutton > div > button {
+	margin-top: 5vh;
+	color: whitesmoke;
+	font-size: 20px;
+}
+
+.todoMake {
+	font-size: 20px;
+}
+
+.todoMake > div {
+	font-size: 28px;
+}
+
+.todoMake > form > div > button {
+	font-size: 20px;
+}
+
+.todoEdit {
+	font-size: 20px;
+}
+
+.todoEdit > div {
+	font-size: 28px;
+}
+
+.todoEdit > form > div > button {
+	font-size: 20px;
+}
+
+.todoList {
+	font-size: 20px;
+	margin-top: 10vh;
+}
+
+#list {
+	font-size: 28px;
+}
+
+.button > button {
+	font-size: 20px;
+}
+
+.button > form > button {
+	font-size: 20px;
+}
+
+hr:not([size]) {
+	/* border: none; */
+	color: rgb(44, 192, 250);
+	height: 4px;
+	/* border-style: dashed; */
+}
+
+#span {
+	margin-left: 2vw;
+}
+
+#logout {
+	font-size: 20px;
+}
+
+#style {
+	min-height: 100vh;
+	background-color: white;
+	margin-top: 0px;
+	margin-left: 7vw;
+	margin-right: 7vw;
+	margin-bottom: 0px;
+}
+
+@media screen and (max-width: 1024px) {
+	input[name="What"] {
+		width: 50vw;
+	}
+	#header {
+		font-size: 40px;
+		margin-bottom: 0vh;
+	}
+
+	#addTaskbutton > div > button {
+		margin-top: 3vh;
+		color: whitesmoke;
+		font-size: 20px;
+	}
+
+	.todoMake {
+		font-size: 20px;
+	}
+
+	.todoMake > div {
+		font-size: 28px;
+	}
+
+	.todoMake > form > div > button {
+		font-size: 20px;
+	}
+
+	.todoEdit {
+		font-size: 20px;
+	}
+
+	.todoEdit > div {
+		font-size: 28px;
+	}
+
+	.todoEdit > form > div > button {
+		font-size: 20px;
+	}
+
+	.todoList {
+		font-size: 20px;
+		margin-top: 5vh;
+	}
+
+	#list {
+		font-size: 28px;
+	}
+
+	.button > button {
+		font-size: 20px;
+	}
+
+	.button > form > button {
+		font-size: 20px;
+	}
+
+	hr:not([size]) {
+		/* border: none; */
+		color: rgb(44, 192, 250);
+		height: 4px;
+		/* border-style: dashed; */
+	}
+	#span {
+		margin-left: 2vw;
+	}
+
+	#logout {
+		font-size: 20px;
+	}
+
+	#style {
+		min-height: 100vh;
+		background-color: white;
+		margin-top: 0px;
+		margin-left: 5vw;
+		margin-right: 5vw;
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 599px) {
+	input[name="What"] {
+		width: 90vw;
+	}
+	#header {
+		font-size: 32px;
+		margin-bottom: 0vh;
+	}
+
+	#addTaskbutton > div > button {
+		margin-top: 3vh;
+		color: whitesmoke;
+		font-size: 18px;
+	}
+
+	.todoMake {
+		font-size: 18px;
+	}
+
+	.todoMake > div {
+		font-size: 24px;
+	}
+
+	.todoMake > form > div > button {
+		font-size: 18px;
+		margin-top: 3vh;
+	}
+
+	.todoEdit {
+		font-size: 18px;
+	}
+
+	.todoEdit > div {
+		font-size: 24px;
+	}
+
+	.todoEdit > form > div > button {
+		font-size: 18px;
+		margin-top: 3vh;
+	}
+
+	.todoList {
+		font-size: 18px;
+		margin-top: 5vh;
+	}
+
+	#list {
+		font-size: 24px;
+	}
+
+	.button > button {
+		font-size: 18px;
+	}
+
+	.button > form > button {
+		font-size: 18px;
+	}
+
+	hr:not([size]) {
+		/* border: none; */
+		color: rgb(44, 192, 250);
+		height: 4px;
+		/* border-style: dashed; */
+	}
+
+	#span {
+		margin-left: 0vw;
+		display: inline-block;
+	}
+
+	#logout {
+		font-size: 18px;
+	}
+
+	#style {
+		min-height: 100vh;
+		background-color: white;
+		margin-top: 0px;
+		margin-left: 0vw;
+		margin-right: 0vw;
+		margin-bottom: 0px;
+	}
+}
+/* a {
+  color: #00B7FF;
+} */

@@ -9,7 +9,8 @@ const mycon = {
 	database: "db_name",
 };
 
-// ログインusernameとpasswordが記載のテーブルはあらかじめmysqlで作成
+// ログインusernameとpasswordが記載のテーブルはあらかじめmysqlで作成してください
+// usernameカラムとpasswordカラムを作成してください
 
 const loginMysql = async () => {
 	const con = await mysql.createConnection(mycon);

@@ -21,6 +21,8 @@ async function getUsers() {
 const listUsers = async () => {
 	// JSONデータのやり取り
 	const users = await getUsers();
+	document.getElementById("style").style.display = "block";
+	$todoMake.style.display = "none";
 	//  DOM操作
 	let handlerIndex = 0;
 	if (!(users == null)) {
@@ -31,7 +33,7 @@ const listUsers = async () => {
 	}
 };
 
-$todoMake.style.display = "none";
+
 listUsers();
 
 // 編集ボタンのイベント

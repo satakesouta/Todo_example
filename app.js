@@ -99,7 +99,7 @@ const mycon = {
 	database: "db_name",
 };
 
-// jsonカラム（データ型はlongtext）を保持するテーブルはあらかじめmysqlで作成
+// jsonカラム（データ型はlongtext）を保持するテーブル、データベースはあらかじめmysqlで作成
 
 const selectMysql = async () => {
 	const con = await mysql.createConnection(mycon);

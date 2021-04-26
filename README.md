@@ -1,7 +1,8 @@
 # Todo app
 
 javascript, expressjs, mysqlを用いたウェブTodoアプリ<br>
-日付順に自動で並べる<br>
+項目を日付順に自動で並べる<br>
+レスポンシブ対応<br>
 ログイン機能付き<br>
 passportjsとredisを使用しセッション管理<br>
 mysqlでデータベース及びテーブル作成する必要あり<br>

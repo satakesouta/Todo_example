@@ -248,6 +248,9 @@ var server = http.createServer(app);
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
+
+// unhandledRejection のイベントをキャプチャ
+// UnhandledPromiseRejectionWarningはエラーの発生場所までは伝えないので下のコードが役に立つ
 process.on("unhandledRejection", (reason, p) => {
 	console.log("Unhandled Rejection at: Promise", p, "reason:", reason);
 });

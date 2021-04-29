@@ -22,7 +22,6 @@ const makeNode = (user, i) => {
 	$list.appendChild($Where);
 	$list.appendChild($What);
 	if (user.Untilwhen < today) {
-		console.log(today);
 		$list.style.color = "red";
 	}
 

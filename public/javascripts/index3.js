@@ -1,4 +1,3 @@
-const $todoLists = document.getElementsByClassName("todoList")[0];
 const $todoMake = document.getElementsByClassName("todoMake")[0];
 const $addTaskbutton = document.getElementById("addTaskbutton");
 const $back = document.getElementById("back");
@@ -30,7 +29,7 @@ const listUsers = async () => {
 			handlerIndex++;
 		}
 	}
-	editButton();
+	editButton(users);
 };
 
 listUsers();
@@ -60,9 +59,4 @@ $back.addEventListener("click", () => {
 $back2.addEventListener("click", () => {
 	$todoEdit.style.display = "none";
 	$addTaskbutton.style.display = "block";
-	$todoLists.style.display = "block";
-	// console.log($form);
-	Array.prototype.forEach.call($form, (element) => {
-		element.value = "";
-	});
 });

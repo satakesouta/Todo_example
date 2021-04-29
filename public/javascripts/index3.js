@@ -5,11 +5,10 @@ const $back = document.getElementById("back");
 const $form = document.getElementsByClassName("form");
 const $todoEdit = document.getElementsByClassName("todoEdit")[0];
 const $back2 = document.getElementById("back2");
-const $editnumber = document.getElementsByName("edit")[0];
-const $form2 = document.getElementsByClassName("form2");
-const listIndex = document.getElementsByName("edit2");
-import { addList } from "./component/nodeMake.js";
+
+import { makeNode } from "./component/makenode.js";
 import "./component/style.css";
+import { editButton } from "./component/editbutton.js";
 
 // 関数 データのやり取り
 async function getUsers() {
@@ -27,35 +26,14 @@ const listUsers = async () => {
 	let handlerIndex = 0;
 	if (!(users == null)) {
 		while (handlerIndex < users.length) {
-			addList(users[handlerIndex], handlerIndex);
+			makeNode(users[handlerIndex], handlerIndex);
 			handlerIndex++;
 		}
 	}
+	editButton();
 };
 
-
 listUsers();
-
-// 編集ボタンのイベント
-let handlerIndex2 = 0;
-while (handlerIndex2 < listIndex.length) {
-	listIndex[handlerIndex2].addEventListener("click", (e) => {
-		window.scrollTo({
-			top: 0,
-			behavior: "auto",
-		});
-		let fff = e.target.value;
-		$addTaskbutton.style.display = "none";
-		$todoEdit.style.display = "block";
-		$todoMake.style.display = "none";
-		$editnumber.value = fff;
-		for (let i = 0; i < $form2.length; i++) {
-			const users2 = [users[fff].What, users[fff].Untilwhen, users[fff].Where];
-			$form2[i].value = users2[i];
-		}
-	});
-	handlerIndex2++;
-}
 
 // todo追加ボタン
 $addTaskbutton.addEventListener("click", () => {

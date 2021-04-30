@@ -14,14 +14,14 @@ const mycon = {
 
 const loginMysql = async () => {
 	const con = await mysql.createConnection(mycon);
-	const [rows] = await con.query("SELECT * from xxxxx;");
+	const [rows] = await con.query("SELECT * from login;");
 	con.end();
 	return rows[0];
 };
 
 const gagaga = async (username, password, done) => {
 	const login = await loginMysql();
-	if (username !== login.username) {
+	if (username !== login.id) {
 		return done(null, false, { message: "ユーザーIDが間違っています。" });
 	} else if (password !== login.password) {
 		return done(null, false, { message: "ユーザーIDが間違っています。" });

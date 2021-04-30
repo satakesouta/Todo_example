@@ -7,7 +7,7 @@ const mmonth = "0" + month;
 const date = "0" + dt.getDate();
 const today = dt.getFullYear() + "-" + mmonth.slice(-2) + "-" + date.slice(-2);
 
-const makeNode = (user, i) => {
+function makeNode(user, i) {
 	// 入力欄作成
 	const $list = document.createElement("div");
 	$list.className = "oneList";
@@ -41,6 +41,6 @@ const makeNode = (user, i) => {
 
 	// $todoListsノードに子ノードとして追加
 	$todoLists.appendChild($list);
-};
+}
 
 export { makeNode };

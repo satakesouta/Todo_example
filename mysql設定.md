@@ -1,5 +1,5 @@
 //あらかじめ root ユーザーを使って MySQLへ接続<br>
-//ユーザーの作成
+//ユーザーの作成<br>
 
 > create user username@localhost identified by ‘password’;
 

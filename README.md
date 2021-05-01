@@ -5,6 +5,7 @@ javascript, expressjs, mysqlを用いたウェブTodoアプリ<br>
 レスポンシブ対応<br>
 ログイン機能付き<br>
 passportjsとredisを使用しセッション管理<br>
-mysqlでデータベース及びテーブル作成する必要あり<br>
-ローカルホストで使用可能<br>
+mysqlでデータベース及びテーブル作成する必要あり、詳しくは/routes/passport.js,select-delete-insertmysql.jsを参照<br>
+あらかじめredisをインストールしてください<br>
+ローカルホストで使用可能、npm startで起動<br>
 herokuで使用する場合、heroku用のmysqlとrediscloudを設定する必要あり<br>

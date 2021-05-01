@@ -1,4 +1,4 @@
-//あらかじめ root ユーザーを使って MySQL  へ接続
+//あらかじめ root ユーザーを使って MySQLへ接続<br>
 //ユーザーの作成
 
 > create user username@localhost identified by ‘password’;
@@ -7,7 +7,7 @@
 
 > grant all on _._ to username@localhost;
 
-//作成したユーザーで mysql 接続
+//作成したユーザーで mysql 接続<br>
 %mysql -u username -h localhost -p
 
 //データベースの作成

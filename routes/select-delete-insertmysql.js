@@ -1,10 +1,10 @@
 const mysql = require("mysql2/promise");
-const mysqlSelect = "select json from users";
+const mysqlSelect = "select json from tbl_name";
 
 const mycon = {
 	host: "localhost",
-	user: "root",
-	password: "",
+	user: "username",
+	password: "password",
 	database: "db_name",
 };
 
@@ -15,7 +15,7 @@ const mycon = {
 const selectMysql = async () => {
 	const con = await mysql.createConnection(mycon);
 	const [rows] = await con.query(mysqlSelect);
-	if (rows[0].json == null) {
+	if (rows[0] == null) {
 		const rr = [];
 		con.end();
 		return rr;
@@ -28,8 +28,8 @@ const selectMysql = async () => {
 
 const deleteinsertMysql = async (todoObject) => {
 	const con = await mysql.createConnection(mycon);
-	await con.query("DELETE FROM users");
-	await con.query("INSERT INTO users (json) VALUES (?)", [
+	await con.query("DELETE FROM tbl_name");
+	await con.query("INSERT INTO tbl_name (json) VALUES (?)", [
 		JSON.stringify(todoObject),
 	]);
 };

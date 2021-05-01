@@ -11,7 +11,6 @@
 			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 			crossorigin="anonymous"
 		/>
-		<link rel="icon" type="image/jpg" href="/images/kinggnu.jpg" />
 	</head>
 	<body>
 		<div id="style" style="display: none">
@@ -81,7 +80,9 @@
 						</button>
 						<form action="/delete" method="post">
 							<input type="hidden" name="delete" />
-							<button type="submit" class="btn btn-success">Delete</button>
+							<button type="submit" class="btn btn-success" name="delete">
+								Delete
+							</button>
 							<!-- <input type="text" name="message" /> -->
 							<!-- <input type="submit" value="送信" /> -->
 						</form>

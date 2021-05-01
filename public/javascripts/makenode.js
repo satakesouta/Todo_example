@@ -27,11 +27,10 @@ function makeNode(user, i) {
 
 	// ボタン作成
 	const clone = $template.content.cloneNode(true);
-	const inputButton = clone.querySelectorAll("div.button")[0].childNodes;
-	const formButton = inputButton[3].childNodes;
-	inputButton[1].value = i;
-	formButton[1].value = i;
-	formButton[3].value = i;
+
+	clone.querySelector('[name="edit2"]').value = i;
+	clone.querySelector('[name="delete"]').value = i;
+	clone.querySelector('button[name="delete"]').value = i;
 	$list.appendChild(clone);
 
 	// 水平線作成

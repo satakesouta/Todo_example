@@ -4,8 +4,8 @@ const LocalStrategy = require("passport-local").Strategy;
 
 const mycon = {
 	host: "localhost",
-	user: "root",
-	password: "",
+	user: "username",
+	password: "password",
 	database: "db_name",
 };
 
@@ -14,7 +14,7 @@ const mycon = {
 
 const loginMysql = async () => {
 	const con = await mysql.createConnection(mycon);
-	const [rows] = await con.query("SELECT * from login;");
+	const [rows] = await con.query("SELECT * from tbl_name2;");
 	con.end();
 	return rows[0];
 };

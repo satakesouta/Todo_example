@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg932\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset128 HiraginoSans-W3;\f2\fnil\fcharset0 Avenir-Book;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red248\green254\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c97647\c99608\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14200\viewh14460\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 //
+\f1 \'82\'a0\'82\'e7\'82\'a9\'82\'b6\'82\'df
+\f0 root
+\f1 \'83\'86\'81\'5b\'83\'55\'81\'5b\'82\'f0\'8e\'67\'82\'c1\'82\'c4
+\f2 \cf2 \expnd0\expndtw0\kerning0
+MySQL\'a0
+\f1 \'82\'d6\'90\'da\'91\'b1\
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 //
+\f1 \'83\'86\'81\'5b\'83\'55\'81\'5b\'82\'cc\'8d\'ec\'90\'ac
+\f0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
+>create user username@localhost identified by \'91password\'92;\
+
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+//
+\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
+username@localhost
+\f1 \cf0 \cb1 \kerning1\expnd0\expndtw0 \'83\'86\'81\'5b\'83\'55\'81\'5b\'82\'c9\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'83\'4f\'83\'8d\'81\'5b\'83\'6f\'83\'8b\'83\'8c\'83\'78\'83\'8b\'82\'cc\'8c\'a0\'8c\'c0\'95\'74\'97\'5e
+\f2 \cb3 \
+>grant all on *.* to username@localhost;\
+
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 //
+\f1 \'8d\'ec\'90\'ac\'82\'b5\'82\'bd\'83\'86\'81\'5b\'83\'55\'81\'5b\'82\'c5
+\f0 mysql
+\f1 \'90\'da\'91\'b1
+\f0 \
+%mysql -u username -h localhost -p\
+\
+//
+\f1 \'83\'66\'81\'5b\'83\'5e\'83\'78\'81\'5b\'83\'58\'82\'cc\'8d\'ec\'90\'ac
+\f0 \
+>
+\f2 \cf2 \expnd0\expndtw0\kerning0
+CREATE DATABASE db_name;\
+\
+//json
+\f1 \'83\'66\'81\'5b\'83\'5e\'97\'70\'83\'65\'81\'5b\'83\'75\'83\'8b\'82\'cc\'8d\'ec\'90\'ac\
+>
+\f2 CREATE TABLE db_name.tbl_name
+\f1  
+\f2 \cb3 (json longtext);\
+\
+//login
+\f1 \'83\'66\'81\'5b\'83\'5e\'97\'70\cb1 \'83\'65\'81\'5b\'83\'75\'83\'8b\cb3 \'8d\'ec\'90\'ac
+\f2 \
+>\cb1 CREATE TABLE db_name.tbl_name2\cb3 (id varchar(30), password varchar(30));\
+\
+//id
+\f1 \'82\'c6\'83\'70\'83\'58\'83\'8f\'81\'5b\'83\'68\'82\'f0\'91\'7d\'93\'fc
+\f2 \
+>insert into db_name.tbl_name2 values('xxx', 'yyy');\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs28 \cf2 \cb1 \
+\
+}

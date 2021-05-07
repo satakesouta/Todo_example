@@ -30,7 +30,6 @@ function makeNode(user, i) {
 
 	clone.querySelector('[name="edit2"]').value = i;
 	clone.querySelector('[name="delete"]').value = i;
-	clone.querySelector('button[name="delete"]').value = i;
 	$list.appendChild(clone);
 
 	// 水平線作成

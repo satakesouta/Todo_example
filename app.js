@@ -69,8 +69,9 @@ app.post(
 	}),
 	(req, res) => {
 		// 認証成功した場合のコールバック
+		const todoUrl = `./todo/${req.user}`;
 		req.session.save(() => {
-			res.redirect("./");
+			res.redirect(todoUrl);
 		});
 	}
 );
@@ -85,8 +86,8 @@ app.post("/logout", (req, res, next) => {
 //
 //
 // Todoページ（index.ejs）初め
-app.get("/", function (req, res) {
-	todoPage.authenticate(req, res);
+app.get("/todo/:username", function (req, res) {
+	todoPage.authenticate(req, res, req.params.username);
 });
 
 app.get("/api", (req, res) => {

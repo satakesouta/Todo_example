@@ -19,8 +19,9 @@ const dateSort = (arr) => {
 };
 
 class todoPage {
-	static authenticate = function (req, res) {
+	static authenticate = function (req, res, username) {
 		if (req.user) {
+			req.flash("username", `${username} さん、こんにちは`);
 			res.render("index.ejs");
 			return;
 		} else {

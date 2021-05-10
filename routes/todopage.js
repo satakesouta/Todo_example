@@ -50,7 +50,7 @@ class todoPage {
 		todoObject.push(todoObject1);
 		dateSort(todoObject);
 		await deleteinsertMysql(todoObject);
-		res.redirect("/");
+		res.redirect(`./todo/${req.user}`);
 	};
 
 	static editTodo = async function (req, res) {
@@ -65,7 +65,7 @@ class todoPage {
 		todoObject.push(todoObject1);
 		dateSort(todoObject);
 		await deleteinsertMysql(todoObject);
-		res.redirect("/");
+		res.redirect(`./todo/${req.user}`);
 	};
 
 	static deleteTodo = async function (req, res) {
@@ -73,7 +73,7 @@ class todoPage {
 		buttonNumber = req.body.delete;
 		todoObject.splice(buttonNumber, 1);
 		await deleteinsertMysql(todoObject);
-		res.redirect("/");
+		res.redirect(`./todo/${req.user}`);
 	};
 }
 module.exports = todoPage;

@@ -1,20 +1,15 @@
-const $todoMake = document.getElementsByClassName("todoMake")[0];
-const $addTaskbutton = document.getElementById("addTaskbutton");
-
 import "./component/style.css";
 import { backButton } from "./component/backbutton.js";
 import { listUsers } from "./component/listusers.js";
+import { apiUrl } from "./component/api-url.js";
+import { userName } from "./component/username.js";
+import { addButton, addTaskButton } from "./component/addbutton.js";
+import { rescheduleButton } from "./component/reschedulebutton.js";
 
-listUsers();
+listUsers(apiUrl + userName());
 
-// todo追加ボタン
-$addTaskbutton.addEventListener("click", () => {
-	$todoMake.style.display = "block";
-	$addTaskbutton.style.display = "none";
-	window.scrollTo({
-		top: 0,
-		behavior: "auto",
-	});
-});
+addButton();
+addTaskButton();
+rescheduleButton();
 
 backButton();

@@ -10,7 +10,6 @@ const backButton = () => {
 	$back.addEventListener("click", () => {
 		$todoMake.style.display = "none";
 		$addTaskbutton.style.display = "block";
-		// console.log($form);
 		Array.prototype.forEach.call($form, (element) => {
 			element.value = "";
 		});

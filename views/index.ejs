@@ -23,53 +23,51 @@
 			</div>
 			<div class="todoMake">
 				<div>Add Todo</div>
-				<form action="/make" method="post">
-					<div>What?</div>
-					<input type="text" name="What" required class="form" />
-					<div>Until when?(Year-Month-Day)</div>
-					<input
-						type="date"
-						name="Untilwhen"
-						required
-						pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-						class="form"
-					/>
-					<div>Where?</div>
-					<input type="text" name="Where" class="form" />
-					<div class="d-flex flex-row justify-content-center">
-						<button type="submit" class="btn btn-primary">Add!</button>
-						<button type="button" class="btn btn-success" id="back">
-							Back
-						</button>
-					</div>
-				</form>
+
+				<div>What?</div>
+				<input type="text" name="What" required class="form" />
+				<div>Until when?(Year-Month-Day)</div>
+				<input
+					type="date"
+					name="Untilwhen"
+					required
+					pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+					class="form"
+				/>
+				<div>Where?</div>
+				<input type="text" name="Where" class="form" />
+				<div class="d-flex flex-row justify-content-center">
+					<button type="submit" class="btn btn-primary" id="add">Add!</button>
+					<button type="button" class="btn btn-success" id="back">Back</button>
+				</div>
+
 				<hr />
 			</div>
 			<div class="todoEdit" style="display: none">
 				<div>Edit Todo</div>
-				<form action="/edit" method="post">
-					<div>What?</div>
-					<input type="text" name="What" required class="form2" />
-					<div>Until when?(Year-Month-Day)</div>
-					<input
-						type="date"
-						name="Untilwhen"
-						required
-						pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-						class="form2"
-					/>
-					<div>Where?</div>
-					<input type="text" name="Where" class="form2" />
-					<input type="hidden" name="edit" />
-					<div class="d-flex flex-row justify-content-center">
-						<button type="submit" class="btn btn-danger" id="reschedule">
-							Reschedule!
-						</button>
-						<button type="button" class="btn btn-success" id="back2">
-							Back
-						</button>
-					</div>
-				</form>
+				<div>What?</div>
+				<input type="text" name="What" required class="form2" />
+				<div>Until when?(Year-Month-Day)</div>
+				<input
+					type="date"
+					name="Untilwhen"
+					required
+					pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+					class="form2"
+				/>
+				<div>Where?</div>
+				<input type="text" name="Where" class="form2" />
+				<div class="d-flex flex-row justify-content-center">
+					<button
+						type="submit"
+						class="btn btn-danger"
+						id="reschedule"
+						name="edit"
+					>
+						Reschedule!
+					</button>
+					<button type="button" class="btn btn-success" id="back2">Back</button>
+				</div>
 				<hr />
 			</div>
 			<div class="todoList">
@@ -79,21 +77,13 @@
 						<button type="submit" class="btn btn-primary" name="edit2">
 							Edit
 						</button>
-						<form action="/delete" method="post">
-							<input type="hidden" name="delete" />
-							<button type="submit" class="btn btn-success">Delete</button>
-							<!-- <input type="text" name="message" /> -->
-							<!-- <input type="submit" value="送信" /> -->
-						</form>
+						<button type="submit" class="btn btn-success" name="delete">
+							Delete
+						</button>
+						<!-- <input type="text" name="message" /> -->
+						<!-- <input type="submit" value="送信" /> -->
 					</div>
 				</template>
-				<!-- <form action="/delete" method="post">
-					<div>Where?</div>
-					<input type="hidden" name="Whereas" />
-					<div class="d-flex flex-row justify-content-center">
-						<button type="submit" class="btn btn-primary">Primary</button>
-					</div>
-				</form> -->
 			</div>
 			<form action="/logout" method="post">
 				<div class="d-flex flex-row justify-content-center">

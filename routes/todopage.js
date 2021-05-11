@@ -2,7 +2,6 @@
 // const mysqlSelect = "select json from users";
 let todoObject;
 let todoObject1;
-let buttonNumber;
 const {
 	selectMysql,
 	deleteinsertMysql,
@@ -42,38 +41,29 @@ class todoPage {
 
 	static makeTodo = async function (req, res) {
 		todoObject = await selectMysql();
-		todoObject1 = {
-			What: req.body.What,
-			Where: req.body.Where,
-			Untilwhen: req.body.Untilwhen,
-		};
+		todoObject1 = req.body;
 		todoObject.push(todoObject1);
 		dateSort(todoObject);
 		await deleteinsertMysql(todoObject);
-		res.redirect(`./todo/${req.user}`);
+		// res.sendメソッドは必ず行わないといけない
+		res.sendStatus(200);
 	};
 
-	static editTodo = async function (req, res) {
+	static editTodo = async function (req, res, buttonNumber) {
 		todoObject = await selectMysql();
-		todoObject1 = {
-			What: req.body.What,
-			Where: req.body.Where,
-			Untilwhen: req.body.Untilwhen,
-		};
-		buttonNumber = req.body.edit;
+		todoObject1 = req.body;
 		todoObject.splice(buttonNumber, 1);
 		todoObject.push(todoObject1);
 		dateSort(todoObject);
 		await deleteinsertMysql(todoObject);
-		res.redirect(`./todo/${req.user}`);
+		res.sendStatus(200);
 	};
 
-	static deleteTodo = async function (req, res) {
+	static deleteTodo = async function (req, res, buttonNumber) {
 		todoObject = await selectMysql();
-		buttonNumber = req.body.delete;
 		todoObject.splice(buttonNumber, 1);
 		await deleteinsertMysql(todoObject);
-		res.redirect(`./todo/${req.user}`);
+		res.sendStatus(200);
 	};
 }
 module.exports = todoPage;

@@ -30,11 +30,11 @@ input[name="What"] {
 	font-size: 20px;
 }
 
-.todoMake > div {
+.todoMake div:first-of-type {
 	font-size: 28px;
 }
 
-.todoMake > form > div > button {
+.todoMake > div > button {
 	font-size: 20px;
 }
 
@@ -42,11 +42,11 @@ input[name="What"] {
 	font-size: 20px;
 }
 
-.todoEdit > div {
+.todoEdit div:first-of-type {
 	font-size: 28px;
 }
 
-.todoEdit > form > div > button {
+.todoEdit > div > button {
 	font-size: 20px;
 }
 
@@ -60,10 +60,6 @@ input[name="What"] {
 }
 
 .button > button {
-	font-size: 20px;
-}
-
-.button > form > button {
 	font-size: 20px;
 }
 
@@ -117,11 +113,11 @@ hr:not([size]) {
 		font-size: 20px;
 	}
 
-	.todoMake > div {
+	.todoMake div:first-of-type {
 		font-size: 28px;
 	}
 
-	.todoMake > form > div > button {
+	.todoMake > div > button {
 		font-size: 20px;
 	}
 
@@ -129,11 +125,11 @@ hr:not([size]) {
 		font-size: 20px;
 	}
 
-	.todoEdit > div {
+	.todoEdit div:first-of-type {
 		font-size: 28px;
 	}
 
-	.todoEdit > form > div > button {
+	.todoEdit > div > button {
 		font-size: 20px;
 	}
 
@@ -147,10 +143,6 @@ hr:not([size]) {
 	}
 
 	.button > button {
-		font-size: 20px;
-	}
-
-	.button > form > button {
 		font-size: 20px;
 	}
 
@@ -204,11 +196,11 @@ hr:not([size]) {
 		font-size: 18px;
 	}
 
-	.todoMake > div {
+	.todoMake div:first-of-type {
 		font-size: 24px;
 	}
 
-	.todoMake > form > div > button {
+	.todoMake > div > button {
 		font-size: 18px;
 		margin-top: 3vh;
 	}
@@ -217,11 +209,11 @@ hr:not([size]) {
 		font-size: 18px;
 	}
 
-	.todoEdit > div {
+	.todoEdit div:first-of-type {
 		font-size: 24px;
 	}
 
-	.todoEdit > form > div > button {
+	.todoEdit > div > button {
 		font-size: 18px;
 		margin-top: 3vh;
 	}
@@ -236,10 +228,6 @@ hr:not([size]) {
 	}
 
 	.button > button {
-		font-size: 18px;
-	}
-
-	.button > form > button {
 		font-size: 18px;
 	}
 

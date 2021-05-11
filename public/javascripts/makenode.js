@@ -10,7 +10,6 @@ const today = dt.getFullYear() + "-" + mmonth.slice(-2) + "-" + date.slice(-2);
 function makeNode(user, i) {
 	// 入力欄作成
 	const $list = document.createElement("div");
-	$list.className = "oneList";
 	const $Untilwhen = document.createElement("span");
 	$Untilwhen.textContent = "Until when:" + user.Untilwhen;
 	const $Where = document.createElement("span");

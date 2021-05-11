@@ -2,17 +2,18 @@ const $todoMake = document.getElementsByClassName("todoMake")[0];
 
 import { makeNode } from "./makenode.js";
 import { editButton } from "./editbutton.js";
+import { deleteButton } from "./deletebutton.js";
 
 // 関数 データのやり取り
-async function getUsers() {
-	const res = await fetch("http://localhost:5000/api");
+async function getUsers(x) {
+	const res = await fetch(x);
 	const users = await res.json();
 	return users;
 }
 
-const listUsers = async () => {
+const listUsers = async (x) => {
 	// JSONデータのやり取り
-	const users = await getUsers();
+	const users = await getUsers(x);
 	document.getElementById("style").style.display = "block";
 	$todoMake.style.display = "none";
 	//  DOM操作
@@ -25,6 +26,8 @@ const listUsers = async () => {
 	}
 
 	editButton(users);
+
+	deleteButton();
 };
 
-export { listUsers };
+export { listUsers, getUsers };

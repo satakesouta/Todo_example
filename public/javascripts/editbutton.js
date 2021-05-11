@@ -7,8 +7,8 @@ const $editNumber = document.getElementsByName("edit")[0];
 const $form2 = document.getElementsByClassName("form2");
 const $todoMake = document.getElementsByClassName("todoMake")[0];
 
-let handlerIndex2 = 0;
 const editButton = (users) => {
+	let handlerIndex2 = 0;
 	while (handlerIndex2 < listIndex.length) {
 		listIndex[handlerIndex2].addEventListener("click", (e) => {
 			window.scrollTo({

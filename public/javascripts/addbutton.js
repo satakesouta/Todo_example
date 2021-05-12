@@ -7,6 +7,7 @@ const $form = document.getElementsByClassName("form");
 import { listUsers } from "./listusers.js";
 import { apiUrl } from "./api-url.js";
 import { userName } from "./username.js";
+// addボタンの実装
 
 const addButton = () => {
 	$addButton.addEventListener("click", async () => {

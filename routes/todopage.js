@@ -35,35 +35,51 @@ class todoPage {
 			res.header("Content-Type", "application/json; charset=utf-8");
 			res.json(todoObject);
 		} else {
-			res.send("error");
+			res.status(404).send("Not Found");
 		}
 	};
 
 	static makeTodo = async function (req, res) {
 		todoObject = await selectMysql();
 		todoObject1 = req.body;
-		todoObject.push(todoObject1);
-		dateSort(todoObject);
-		await deleteinsertMysql(todoObject);
-		// res.sendメソッドは必ず行わないといけない
-		res.sendStatus(200);
+		if (!req.body.What || req.body.What === "") {
+			res.status(400).send({ error: "Whatが指定されていません" });
+		} else if (!req.body.Untilwhen || req.body.Untilwhen === "") {
+			res.status(400).send({ error: "Until whenが指定されていません" });
+		} else if (!req.body.Where || req.body.Where === "") {
+			res.status(400).send({ error: "Whereが指定されていません" });
+		} else {
+			todoObject.push(todoObject1);
+			dateSort(todoObject);
+			await deleteinsertMysql(todoObject);
+			// res.sendメソッドは必ず行わないといけない
+			res.status(201).send({ status: "OK" });
+		}
 	};
 
 	static editTodo = async function (req, res, buttonNumber) {
 		todoObject = await selectMysql();
 		todoObject1 = req.body;
-		todoObject.splice(buttonNumber, 1);
-		todoObject.push(todoObject1);
-		dateSort(todoObject);
-		await deleteinsertMysql(todoObject);
-		res.sendStatus(200);
+		if (!req.body.What || req.body.What === "") {
+			res.status(400).send({ error: "Whatが指定されていません" });
+		} else if (!req.body.Untilwhen || req.body.Untilwhen === "") {
+			res.status(400).send({ error: "Until whenが指定されていません" });
+		} else if (!req.body.Where || req.body.Where === "") {
+			res.status(400).send({ error: "Whereが指定されていません" });
+		} else {
+			todoObject.splice(buttonNumber, 1);
+			todoObject.push(todoObject1);
+			dateSort(todoObject);
+			await deleteinsertMysql(todoObject);
+			res.status(202).send({ status: "OK" });
+		}
 	};
 
 	static deleteTodo = async function (req, res, buttonNumber) {
 		todoObject = await selectMysql();
 		todoObject.splice(buttonNumber, 1);
 		await deleteinsertMysql(todoObject);
-		res.sendStatus(200);
+		res.status(203).send({ status: "OK" });
 	};
 }
 module.exports = todoPage;

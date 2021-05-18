@@ -4,23 +4,15 @@ let todoObject;
 let todoObject1;
 const {
 	selectMysql,
-	deleteinsertMysql,
-} = require("./select-delete-insertmysql");
-
-const dateSort = (arr) => {
-	arr.sort(function (a, b) {
-		if (a.Untilwhen < b.Untilwhen) {
-			return -1;
-		} else {
-			return 1;
-		}
-	});
-};
+	insertMysql,
+	deleteMysql,
+	updateMysql,
+} = require("./operatemysql");
 
 class todoPage {
-	static authenticate = function (req, res, username) {
+	static authenticate = function (req, res) {
 		if (req.user) {
-			req.flash("username", `${username} さん、こんにちは`);
+			req.flash("username", `${req.user} さん、こんにちは`);
 			res.render("index.ejs");
 			return;
 		} else {
@@ -40,45 +32,37 @@ class todoPage {
 	};
 
 	static makeTodo = async function (req, res) {
-		todoObject = await selectMysql();
 		todoObject1 = req.body;
-		if (!req.body.What || req.body.What === "") {
+		console.log(todoObject1);
+		if (!todoObject1.What || todoObject1.What === "") {
 			res.status(400).send({ error: "Whatが指定されていません" });
 		} else if (!req.body.Untilwhen || req.body.Untilwhen === "") {
 			res.status(400).send({ error: "Until whenが指定されていません" });
-		} else if (!req.body.Where || req.body.Where === "") {
+		} else if (!req.body.Place || req.body.Place === "") {
 			res.status(400).send({ error: "Whereが指定されていません" });
 		} else {
-			todoObject.push(todoObject1);
-			dateSort(todoObject);
-			await deleteinsertMysql(todoObject);
+			await insertMysql(todoObject1);
 			// res.sendメソッドは必ず行わないといけない
 			res.status(201).send({ status: "OK" });
 		}
 	};
 
-	static editTodo = async function (req, res, buttonNumber) {
-		todoObject = await selectMysql();
+	static editTodo = async function (req, res, id) {
 		todoObject1 = req.body;
 		if (!req.body.What || req.body.What === "") {
 			res.status(400).send({ error: "Whatが指定されていません" });
 		} else if (!req.body.Untilwhen || req.body.Untilwhen === "") {
 			res.status(400).send({ error: "Until whenが指定されていません" });
-		} else if (!req.body.Where || req.body.Where === "") {
+		} else if (!req.body.Place || req.body.Place === "") {
 			res.status(400).send({ error: "Whereが指定されていません" });
 		} else {
-			todoObject.splice(buttonNumber, 1);
-			todoObject.push(todoObject1);
-			dateSort(todoObject);
-			await deleteinsertMysql(todoObject);
+			await updateMysql(todoObject1, id);
 			res.status(202).send({ status: "OK" });
 		}
 	};
 
-	static deleteTodo = async function (req, res, buttonNumber) {
-		todoObject = await selectMysql();
-		todoObject.splice(buttonNumber, 1);
-		await deleteinsertMysql(todoObject);
+	static deleteTodo = async function (req, res, id) {
+		await deleteMysql(id);
 		res.status(203).send({ status: "OK" });
 	};
 }

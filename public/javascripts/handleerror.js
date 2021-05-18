@@ -3,10 +3,10 @@ const $todoMake = document.getElementsByClassName("todoMake")[0];
 const $addTaskbutton = document.getElementById("addTaskbutton");
 const $form = document.getElementsByClassName("form");
 const $todoEdit = document.getElementsByClassName("todoEdit")[0];
+const $addButton = document.getElementById("add");
 
 import { listUsers } from "./listusers.js";
 import { apiUrl } from "./api-url.js";
-import { userName } from "./username.js";
 
 const remakeList = () => {
 	let handlerIndex = 0;
@@ -14,7 +14,7 @@ const remakeList = () => {
 		$todolist[0].remove();
 		// handlerIndex++;
 	}
-	listUsers(apiUrl + userName());
+	listUsers(apiUrl);
 };
 
 const handleError = async (res) => {
@@ -39,7 +39,7 @@ const handleError = async (res) => {
 			break;
 
 		case 203:
-			// putメソッド
+			// deleteメソッド
 			remakeList();
 			break;
 

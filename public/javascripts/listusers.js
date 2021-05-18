@@ -20,7 +20,7 @@ const listUsers = async (x) => {
 	let handlerIndex = 0;
 	if (!(users == null)) {
 		while (handlerIndex < users.length) {
-			makeNode(users[handlerIndex], handlerIndex);
+			makeNode(users[handlerIndex]);
 			handlerIndex++;
 		}
 	}

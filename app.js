@@ -69,9 +69,8 @@ app.post(
 	}),
 	(req, res) => {
 		// 認証成功した場合のコールバック
-		const todoUrl = `./todo/${req.user}`;
 		req.session.save(() => {
-			res.redirect(todoUrl);
+			res.redirect("./todo");
 		});
 	}
 );
@@ -86,24 +85,24 @@ app.post("/logout", (req, res, next) => {
 //
 //
 // Todoページ（index.ejs）初め
-app.get("/todo/:username", function (req, res) {
+app.get("/todo", function (req, res) {
 	todoPage.authenticate(req, res, req.params.username);
 });
 
-app.get(`/api/v1/:username`, (req, res) => {
-	todoPage.api(req, res);
+app.get(`/api/v1`, (req, res) => {
+	todoPage.api(req, res, req.params.username);
 });
 
-app.post("/api/v1/:username", async (req, res) => {
+app.post("/api/v1", async (req, res) => {
 	todoPage.makeTodo(req, res);
 });
 
-app.put("/api/v1/:username/:number", async (req, res) => {
-	todoPage.editTodo(req, res, req.params.number);
+app.put("/api/v1/:id", async (req, res) => {
+	todoPage.editTodo(req, res, req.params.id);
 });
 
-app.delete("/api/v1/:username/:number", async (req, res) => {
-	todoPage.deleteTodo(req, res, req.params.number);
+app.delete("/api/v1/:id", async (req, res) => {
+	todoPage.deleteTodo(req, res, req.params.id);
 });
 // Todoページ終わり
 

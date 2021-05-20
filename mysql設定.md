@@ -16,7 +16,7 @@ mysql> CREATE TABLE db_name.tbl_name (
 id int not null primary key auto_increment,
 What text not null,
 Place text not null,
-Untilwhen text not null,
+Untilwhen text not null
 );
 
 login データ用テーブル作成<br>

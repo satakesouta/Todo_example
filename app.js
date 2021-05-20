@@ -86,11 +86,11 @@ app.post("/logout", (req, res, next) => {
 //
 // Todoページ（index.ejs）初め
 app.get("/todo", function (req, res) {
-	todoPage.authenticate(req, res, req.params.username);
+	todoPage.authenticate(req, res);
 });
 
 app.get(`/api/v1`, (req, res) => {
-	todoPage.api(req, res, req.params.username);
+	todoPage.api(req, res);
 });
 
 app.post("/api/v1", async (req, res) => {

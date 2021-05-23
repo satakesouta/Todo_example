@@ -3,7 +3,7 @@
 javascript, expressjs, mysqlを用いたウェブTodoアプリ<br>
 項目を日付順に自動で並べる<br>
 レスポンシブ対応<br>
-<div style="color: red;">ユーザー登録、ログイン機能付き</div>
+<span style="color: red;">ユーザー登録、ログイン機能付き</span>
 passportjsとredisを使用しセッション管理<br>
 mysqlでデータベース及びテーブル作成する必要あり、詳しくはmysql設定.mdを参照<br>
 あらかじめredis,mysqlをインストールしてください<br>

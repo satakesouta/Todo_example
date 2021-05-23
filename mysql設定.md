@@ -10,17 +10,3 @@ mysql> grant all on _._ to username@localhost;
 
 データベースの作成<br>
 mysql> CREATE DATABASE db_name;
-
-json データ用テーブルの作成（テーブル名は username に）<br>
-mysql> CREATE TABLE db_name.xxx (
-id int not null primary key auto_increment,
-What text not null,
-Place text not null,
-Untilwhen text not null
-);
-
-login データ用テーブル作成<br>
-mysql> CREATE TABLE db_name.tbl_name2(id varchar(30), password varchar(30));
-
-username とパスワードを挿入<br>
-mysql> insert into db_name.tbl_name2 values('xxx', 'yyy');

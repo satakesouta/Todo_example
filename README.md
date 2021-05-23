@@ -1,6 +1,6 @@
 # Todo app
 
--javascript, expressjs, mysqlを用いたウェブTodoアプリ<br>
+- javascript, expressjs, mysqlを用いたウェブTodoアプリ<br>
 ・項目を日付順に自動で並べる<br>
 ・レスポンシブ対応<br>
 ・ユーザー登録、ログイン機能付き<br>

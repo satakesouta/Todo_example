@@ -2,6 +2,10 @@ body {
 	font-size: 20px;
 	/* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
+.warning {
+	display: flex;
+	justify-content: center;
+}
 .main-title {
 	display: flex;
 	justify-content: center;

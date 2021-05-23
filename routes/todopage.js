@@ -1,6 +1,5 @@
 // const mysql = require("mysql2/promise");
 // const mysqlSelect = "select json from users";
-let todoObject;
 let todoObject1;
 const {
 	selectMysql,
@@ -23,9 +22,7 @@ class todoPage {
 
 	static api = async function (req, res) {
 		if (req.user) {
-			todoObject = await selectMysql();
-			res.header("Content-Type", "application/json; charset=utf-8");
-			res.json(todoObject);
+			await selectMysql(req, res);
 		} else {
 			res.status(404).send("Not Found");
 		}
@@ -33,7 +30,6 @@ class todoPage {
 
 	static makeTodo = async function (req, res) {
 		todoObject1 = req.body;
-		console.log(todoObject1);
 		if (!todoObject1.What || todoObject1.What === "") {
 			res.status(400).send({ error: "Whatが指定されていません" });
 		} else if (!req.body.Untilwhen || req.body.Untilwhen === "") {
@@ -41,7 +37,7 @@ class todoPage {
 		} else if (!req.body.Place || req.body.Place === "") {
 			res.status(400).send({ error: "Whereが指定されていません" });
 		} else {
-			await insertMysql(todoObject1);
+			await insertMysql(todoObject1, req, res);
 			// res.sendメソッドは必ず行わないといけない
 			res.status(201).send({ status: "OK" });
 		}
@@ -56,13 +52,13 @@ class todoPage {
 		} else if (!req.body.Place || req.body.Place === "") {
 			res.status(400).send({ error: "Whereが指定されていません" });
 		} else {
-			await updateMysql(todoObject1, id);
+			await updateMysql(todoObject1, id, req, res);
 			res.status(202).send({ status: "OK" });
 		}
 	};
 
 	static deleteTodo = async function (req, res, id) {
-		await deleteMysql(id);
+		await deleteMysql(id, req, res);
 		res.status(203).send({ status: "OK" });
 	};
 }

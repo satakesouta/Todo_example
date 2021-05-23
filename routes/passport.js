@@ -11,19 +11,20 @@ const mycon = {
 
 // データベース及びテーブルはあらかじめmysqlで作成（mysql設定.md参照）
 
-const loginMysql = async () => {
+const loginMysql = async (username, password) => {
 	const con = await mysql.createConnection(mycon);
-	const [rows] = await con.query("SELECT * from tbl_name2;");
+	const [rows] = await con.query(
+		`SELECT * from tbl_name2 where username="${username}" and password="${password}";`
+	);
 	con.end();
+	console.log(rows[0]);
 	return rows[0];
 };
 
-const gagaga = async (username, password, done) => {
-	const login = await loginMysql();
-	if (username !== login.id) {
-		return done(null, false, { message: "ユーザーIDが間違っています。" });
-	} else if (password !== login.password) {
-		return done(null, false, { message: "ユーザーIDが間違っています。" });
+const authentication = async (username, password, done) => {
+	const login = await loginMysql(username, password);
+	if (!login) {
+		return done(null, false);
 	} else {
 		return done(null, username);
 	}
@@ -31,7 +32,7 @@ const gagaga = async (username, password, done) => {
 
 passport.use(
 	new LocalStrategy((username, password, done) => {
-		gagaga(username, password, done);
+		authentication(username, password, done);
 	})
 );
 

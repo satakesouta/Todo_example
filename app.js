@@ -10,6 +10,7 @@ const redis = require("redis");
 const connectRedis = require("connect-redis");
 const flash = require("express-flash");
 const todoPage = require("./routes/todopage");
+const register = require("./routes/register");
 
 const app = express();
 
@@ -81,6 +82,18 @@ app.post("/logout", (req, res, next) => {
 	res.redirect("/login");
 });
 // ログイン機能終わり
+
+//
+//
+// 新規会員登録画面（register.ejs）
+app.get("/register", (req, res, next) => {
+	res.render("register.ejs");
+});
+
+app.post("/register", (req, res, next) => {
+	register(req, res);
+});
+// 新規会員登録画面終わり
 
 //
 //

@@ -3,7 +3,6 @@ const $todoMake = document.getElementsByClassName("todoMake")[0];
 const $addTaskbutton = document.getElementById("addTaskbutton");
 const $form = document.getElementsByClassName("form");
 const $todoEdit = document.getElementsByClassName("todoEdit")[0];
-const $addButton = document.getElementById("add");
 
 import { listUsers } from "./listusers.js";
 import { apiUrl } from "./api-url.js";
@@ -43,7 +42,7 @@ const handleError = async (res) => {
 			remakeList();
 			break;
 
-		case 400:
+		case (400, 500):
 			alert(resJson.error);
 			break;
 	}

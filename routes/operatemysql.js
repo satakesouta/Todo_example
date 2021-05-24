@@ -8,8 +8,6 @@ const mycon = {
 };
 
 // テーブル及びデータベースはあらかじめmysqlで作成してください（mysql設定.md参照）
-// mysqlに格納するデータ例（一つのフィールドに下記のjsonデータを保存）
-// [{"What":"todoappをgithubに公開","Where":"家","Untilwhen":"2021-04-24"},{"What":"大学にいく","Where":"大学","Untilwhen":"2021-04-27"}]
 
 const selectMysql = async (req, res) => {
 	if (req.user) {

@@ -20,16 +20,14 @@ const signUpMysql = async (username, password) => {
 	const con = await mysql.createConnection(mycon);
 	try {
 		await con.query(
-			`insert into db_name.tbl_name2 values ('${username}', '${password}');`
+			`insert into tbl_name2 values ('${username}', '${password}');`
 		);
 		await con.query(
-			`CREATE TABLE db_name.${username} (id int not null primary key auto_increment,What text not null,Place text not null,Untilwhen text not null);`
+			`CREATE TABLE ${username} (id int not null primary key auto_increment,What text not null,Place text not null,Untilwhen text not null);`
 		);
 	} catch (err) {
 		req.flash("error", "そのユーザーネームは使えません");
-		await con.query(
-			`DELETE FROM db_name.tbl_name2 where username="${username}"`
-		);
+		await con.query(`DELETE FROM tbl_name2 where username="${username}"`);
 	}
 	con.end();
 };

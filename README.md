@@ -20,5 +20,6 @@
 - ローカルホストで使用してください
 - 作業ディレクトリに移動後npm startで起動し、ブラウザでhttp://localhost:5000/login へアクセスしてください
 ## [webアプリの紹介]
-- herokuにデプロイしたアプリを紹介します
+- herokuにTodoアプリをデプロイしました
 - ユーザー登録すれば誰でも使えるのでぜひ
+- https://todoapp-satake.herokuapp.com/login

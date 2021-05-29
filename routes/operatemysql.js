@@ -7,7 +7,7 @@ const mycon = {
 	database: "db_name",
 };
 
-// テーブル及びデータベースはあらかじめmysqlで作成してください（mysql設定.md参照）
+// データベースはあらかじめmysqlで作成してください（mysql設定.md参照）
 
 const selectMysql = async (req, res) => {
 	if (req.user) {
@@ -34,6 +34,7 @@ const insertMysql = async (todoObject, req, res) => {
 			await con.query(
 				`INSERT INTO ${req.user} (What, Place, Untilwhen) VALUES ("${todoObject.What}", "${todoObject.Place}", "${todoObject.Untilwhen}")`
 			);
+			res.status(201).send({ status: "OK" });
 		} catch (err) {
 			res.status(500).send({ error: "Error" });
 		}
@@ -48,6 +49,7 @@ const deleteMysql = async (id, req, res) => {
 		const con = await mysql.createConnection(mycon);
 		try {
 			await con.query(`DELETE FROM ${req.user} where id = ${id}`);
+			res.status(203).send({ status: "OK" });
 		} catch (err) {
 			res.status(500).send({ error: "Error" });
 		}
@@ -64,6 +66,7 @@ const updateMysql = async (todoObject, id, req, res) => {
 			await con.query(
 				`UPDATE ${req.user} SET What="${todoObject.What}",Place="${todoObject.Place}",Untilwhen="${todoObject.Untilwhen}" where id = ${id}`
 			);
+			res.status(202).send({ status: "OK" });
 		} catch (err) {
 			res.status(500).send({ error: "Error" });
 		}

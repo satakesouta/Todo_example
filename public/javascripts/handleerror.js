@@ -42,7 +42,11 @@ const handleError = async (res) => {
 			remakeList();
 			break;
 
-		case (400, 500):
+		case 400:
+			alert(resJson.error);
+			break;
+
+		case 500:
 			alert(resJson.error);
 			break;
 	}

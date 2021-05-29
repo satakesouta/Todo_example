@@ -26,6 +26,8 @@ const signUpMysql = async (req, res, username, password) => {
 			`CREATE TABLE ${username} (id int not null primary key auto_increment,What text not null,Place text not null,Untilwhen text not null);`
 		);
 		req.flash("error", "ユーザーネーム登録完了！ログインしよう！");
+		req.flash("username", username);
+		req.flash("password", password);
 		res.redirect("./login");
 	} catch (err) {
 		req.flash("error", "そのユーザーネームは使えません");

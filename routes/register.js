@@ -9,9 +9,9 @@ const mycon = {
 
 const loginMysql = async (username) => {
 	const con = await mysql.createConnection(mycon);
-	const [rows] = await con.query(
-		`SELECT * from tbl_name2 where username="${username}"`
-	);
+	const [rows] = await con.query(`SELECT * from tbl_name2 where username = ?`, [
+		username,
+	]);
 	con.end();
 	return rows[0];
 };
@@ -19,11 +19,13 @@ const loginMysql = async (username) => {
 const signUpMysql = async (req, res, username, password) => {
 	const con = await mysql.createConnection(mycon);
 	try {
+		await con.query(`insert into tbl_name2 set ?`, {
+			username: username,
+			password: password,
+		});
 		await con.query(
-			`insert into tbl_name2 values ('${username}', '${password}');`
-		);
-		await con.query(
-			`CREATE TABLE ${username} (id int not null primary key auto_increment,What text not null,Place text not null,Untilwhen text not null);`
+			`CREATE TABLE ?? (id int not null primary key auto_increment,What text not null,Place text not null,Untilwhen text not null)`,
+			[username]
 		);
 		req.flash("error", "ユーザーネーム登録完了！ログインしよう！");
 		req.flash("username", username);
@@ -31,7 +33,7 @@ const signUpMysql = async (req, res, username, password) => {
 		res.redirect("./login");
 	} catch (err) {
 		req.flash("error", "そのユーザーネームは使えません");
-		await con.query(`DELETE FROM tbl_name2 where username="${username}"`);
+		await con.query(`DELETE FROM tbl_name2 where username = ?`, [username]);
 		res.redirect("./register");
 	}
 	con.end();

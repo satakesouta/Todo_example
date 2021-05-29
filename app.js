@@ -59,7 +59,7 @@ app.get("/login", function (req, res, next) {
 app.post(
 	"/login",
 	(req, res, next) => {
-		req.flash("error", "ユーザーIDが間違っています。");
+		req.flash("error", "ユーザー名又はパスワードが間違っています");
 		next();
 	},
 	passport.authenticate("local", {

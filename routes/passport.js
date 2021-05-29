@@ -9,30 +9,29 @@ const mycon = {
 	database: "db_name",
 };
 
-// データベース及びテーブルはあらかじめmysqlで作成（mysql設定.md参照）
+// データベースルはあらかじめmysqlで作成（mysql設定.md参照）
 
-const loginMysql = async (username, password) => {
+const loginMysql = async (username, password, done) => {
 	const con = await mysql.createConnection(mycon);
-	const [rows] = await con.query(
-		`SELECT * from tbl_name2 where username="${username}" and password="${password}";`
-	);
-	con.end();
-	console.log(rows[0]);
-	return rows[0];
-};
-
-const authentication = async (username, password, done) => {
-	const login = await loginMysql(username, password);
-	if (!login) {
-		return done(null, false);
-	} else {
-		return done(null, username);
+	try {
+		const [rows] = await con.query(
+			`SELECT * from tbl_name2 where username = ? and password = ?`,
+			[username, password]
+		);
+		if (!rows[0]) {
+			return done(null, false);
+		} else {
+			return done(null, username);
+		}
+	} catch (err) {
+		done(null, false);
 	}
+	con.end();
 };
 
 passport.use(
 	new LocalStrategy((username, password, done) => {
-		authentication(username, password, done);
+		loginMysql(username, password, done);
 	})
 );
 

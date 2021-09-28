@@ -1,10 +1,10 @@
 const mysql = require("mysql2/promise");
 
 const mycon = {
-	host: "localhost",
-	user: "username",
-	password: "password",
-	database: "db_name",
+	host: "us-cdbr-east-03.cleardb.com",
+	user: "b473df4ef3f49b",
+	password: "24ae6295",
+	database: "heroku_904094818a7c710",
 };
 
 // データベースはあらかじめmysqlで作成してください（mysql設定.md参照）

@@ -3,10 +3,10 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 const mycon = {
-	host: "localhost",
-	user: "username",
-	password: "password",
-	database: "db_name",
+	host: "us-cdbr-east-03.cleardb.com",
+	user: "b473df4ef3f49b",
+	password: "24ae6295",
+	database: "heroku_904094818a7c710",
 };
 
 // データベースルはあらかじめmysqlで作成（mysql設定.md参照）
@@ -15,7 +15,7 @@ const loginMysql = async (username, password, done) => {
 	const con = await mysql.createConnection(mycon);
 	try {
 		const [rows] = await con.query(
-			`SELECT * from tbl_name2 where username = ? and password = ?`,
+			`SELECT * from login where username = ? and password = ?`,
 			[username, password]
 		);
 		if (!rows[0]) {

@@ -26,10 +26,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(flash());
 
 const RedisStore = connectRedis(session);
-const redisClient = redis.createClient({
-	host: "localhost",
-	port: 6379,
-});
+// const redisClient = redis.createClient({
+// 	host: "localhost",
+// 	port: 6379,
+// });
+const redisClient = redis.createClient(process.env.REDISCLOUD_URL);
 redisClient.on("connect", function (err) {
 	console.log("Connected to redis successfully");
 });

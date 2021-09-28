@@ -9,7 +9,7 @@ const mycon = {
 
 const loginMysql = async (username) => {
 	const con = await mysql.createConnection(mycon);
-	const [rows] = await con.query(`SELECT * from tbl_name2 where username = ?`, [
+	const [rows] = await con.query(`SELECT * from login where username = ?`, [
 		username,
 	]);
 	con.end();
@@ -19,7 +19,7 @@ const loginMysql = async (username) => {
 const signUpMysql = async (req, res, username, password) => {
 	const con = await mysql.createConnection(mycon);
 	try {
-		await con.query(`insert into tbl_name2 set ?`, {
+		await con.query(`insert into login set ?`, {
 			username: username,
 			password: password,
 		});
@@ -33,7 +33,7 @@ const signUpMysql = async (req, res, username, password) => {
 		res.redirect("./login");
 	} catch (err) {
 		req.flash("error", "そのユーザーネームは使えません");
-		await con.query(`DELETE FROM tbl_name2 where username = ?`, [username]);
+		await con.query(`DELETE FROM login where username = ?`, [username]);
 		res.redirect("./register");
 	}
 	con.end();

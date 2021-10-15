@@ -30,7 +30,7 @@ const RedisStore = connectRedis(session);
 // 	host: "localhost",
 // 	port: 6379,
 // });
-const redisClient = redis.createClient(process.env.REDISCLOUD_URL);
+const redisClient = redis.createClient();
 redisClient.on("connect", function (err) {
 	console.log("Connected to redis successfully");
 });

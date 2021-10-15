@@ -31,4 +31,3 @@ mysql> CREATE DATABASE db_name;
 > insert into db_name.tbl_name2 values ('xxx', 'yyy');
 
 ※’where’, ‘insert’などは予約語なのでカラムの名前などには使えない
-※最後にセミコロン;をつけろ！

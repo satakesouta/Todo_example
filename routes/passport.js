@@ -3,10 +3,10 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 const mycon = {
-	host: "us-cdbr-east-03.cleardb.com",
-	user: "b473df4ef3f49b",
-	password: "24ae6295",
-	database: "heroku_904094818a7c710",
+	host: "localhost",
+	user: "username",
+	password: "password",
+	database: "db_name",
 };
 
 // データベースルはあらかじめmysqlで作成（mysql設定.md参照）
